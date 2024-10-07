@@ -17,3 +17,18 @@ export const fetchAllMovies = async () => {
   const { data } = await instance.get("/discover/movie");
   return data.results;
 };
+
+export const fetchMoviesById = async (movieId) => {
+  const { data } = await instance.get(`/movie/${movieId}`);
+  return data;
+};
+
+export const fetchMovieCast = async (movieId) => {
+  const { data } = await instance.get(`/movie/${movieId}/credits`);
+  return data.cast;
+};
+
+export const fetchMovieReviews = async (movieId) => {
+  const { data } = await instance.get(`/movie/${movieId}/reviews`);
+  return data.results;
+};
